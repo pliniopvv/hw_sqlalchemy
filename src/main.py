@@ -20,18 +20,20 @@ class Filme(Base):
 
     def __repr__(self):
         return f"Filme [titulo={self.titulo}, ano={self.ano}]"
-    
+
+# Base.metadata.create_all(engine)
+
 # Insert
 data_insert = Filme(titulo="Batman", genero="Drama", ano=2022)
 session.add(data_insert)
 session.commit()
 
-# delete
-session.query(Filme).filter(Filme.titulo=="alguma coisa").delete()
-session.commit()
+# # delete
+# session.query(Filme).filter(Filme.titulo=="alguma coisa").delete()
+# session.commit()
 
-# update
-session.query(Filme).filter(Filme.genero == "Drama").update({ "ano": 2000 })
+# # update
+# session.query(Filme).filter(Filme.genero == "Drama").update({ "ano": 2000 })
 
 #Select
 data = session.query(Filme).all()
